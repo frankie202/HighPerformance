@@ -1,8 +1,6 @@
 package com.frankie.testDemo;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class DemoArraList {
     public static void main(String[] args) {
@@ -14,7 +12,14 @@ public class DemoArraList {
         list.add("a2");
         list.add("a3");
 
-        Iterator<String> it = list.iterator();
+        LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<Integer, Integer>(3) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return this.size() >= 3;
+            }
+        };
+
+        /*Iterator<String> it = list.iterator();
         while (it.hasNext()) {
             String tmp = it.next();
             if (tmp.equals("a2")) {
@@ -24,8 +29,26 @@ public class DemoArraList {
         }
 
 
+
         System.out.println(list);
+
+        int val = 100;
+        getval(val);
+        System.out.println(val);*/
+
+        List<Integer> nums = new ArrayList<>();
+        nums.add(5);
+        nums.add(2);
+        nums.add(8);
+
+        Collections.sort(nums,(num,num2) -> {
+            return num2 - num;
+        });
+
+        System.out.println(nums);
     }
 
-
+    private static void getval(int val) {
+        val++;
+    }
 }
