@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SleepForSafePoint {
 
     public static void main(String[] args) {
-        testSleepForSavePoint(false);
+        //testSleepForSavePoint(false);
         testSleepForSavePoint(true);
     }
 
@@ -27,7 +27,7 @@ public class SleepForSafePoint {
         for (int i = 0; i < 2; i++) {
             exec.execute(() -> {
 
-                for (int j = 0; j < 100000000; j++) {
+                for (int j = 0; j < 1000000000; j++) {
                     num.getAndAdd(1);
                 }
                 System.out.println(Thread.currentThread().getName() + " finish");
